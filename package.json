@@ -8,7 +8,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "commit": "npx git-cz",
+    "commit": "npm run lint && npx git-cz",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix"
   },
