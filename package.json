@@ -16,7 +16,7 @@
     "dev": "webpack-dev-server --mode=development",
     "build": "webpack --mode=development",
     "dist": "webpack --mode=production",
-    "serve": "live-server ./dist --port=6240"
+    "serve": "live-server ./dist --port=0624"
   },
   "repository": {
     "type": "git",

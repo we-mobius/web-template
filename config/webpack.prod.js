@@ -44,6 +44,11 @@ module.exports = {
         // 所以我个人推荐手动计算绝对路径，如下
         to: path.resolve(PATHS.output, './statics/favicons/'),
         toType: 'dir'
+      },
+      {
+        from: './src/statics/styles/fonts/',
+        to: path.resolve(PATHS.output, './statics/styles/fonts/'),
+        toType: 'dir'
       }
     ])
   ],

@@ -10,9 +10,13 @@
   <link rel="icon" type="image/png" href="{{mobiusConfig.favicon}}">
   <title>{{mobiusConfig.title}}</title>
 
-  {{!-- 渲染单独定义的外部样式表 --}}
+  {{!-- 渲染单独定义的 异步加载 外部样式表 --}}
+  {{#each mobiusConfig.asyncCss as |outer-async-css|}}
+  <link rel="stylesheet" href="{{outer-async-css}}" media="print" onload="this.media='all'; this.onload=null;" />
+  {{/each}}
+  {{!-- 渲染单独定义的 同步加载 外部样式表 --}}
   {{#each mobiusConfig.css as |outer-css|}}
-  <link rel='preload' as="style" href="{{outer-css}}" />
+  <link rel='stylesheet' href="{{outer-css}}" />
   {{/each}}
   {{!-- 渲染 webpack 打包完成的 CSS --}}
   {{#each htmlWebpackPlugin.css as |inner-css|}}
@@ -35,16 +39,6 @@
   {{!-- 渲染额外的 body 内容 --}}
   {{{mobiusConfig.bodyHtmlSnippet}}}
 
-  {{!-- 渲染 Google Analytics 代码 --}}
-  {{#if mobiusConfig.googleAnalytics.trackingId}}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{mobiusConfig.googleAnalytics.trackingId}}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{mobiusConfig.googleAnalytics.trackingId}}');
-  </script>
-  {{/if}}
   {{!-- 渲染百度统计代码 --}}
   {{#if mobiusConfig.baiduAnalytics.trackingId}}
   <script>
@@ -55,6 +49,22 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
+  </script>
+  {{/if}}
+
+  {{!-- 渲染额外引入的字体资源 --}}
+  {{#each mobiusConfig.fonts as |extra-font|}}
+  <link rel='preload' as="font" href="{{extra-font}}" />
+  {{/each}}
+
+  {{!-- 渲染 Google Analytics 代码 --}}
+  {{#if mobiusConfig.googleAnalytics.trackingId}}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{mobiusConfig.googleAnalytics.trackingId}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{mobiusConfig.googleAnalytics.trackingId}}');
   </script>
   {{/if}}
 </body>
