@@ -17,6 +17,7 @@
     "build": "webpack --env.mode=development",
     "dist": "webpack --env.mode=production",
     "serve": "live-server ./dist --port=0624",
+    "expose": "ngrok http 624",
     "bundle": "webpack --env.mode=release && node ./bin/release"
   },
   "repository": {
@@ -80,5 +81,15 @@
       "config": ".cz-config.js"
     }
   },
-  "jsdelivr": "index.js"
+  "jsdelivr": "index.js",
+  "files": [
+    "/release/*",
+    "/public/*",
+    "/dist/*",
+    "/docs/*"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  }
 }
