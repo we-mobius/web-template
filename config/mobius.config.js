@@ -2,6 +2,7 @@ module.exports = {
   template: {
     index: {
       title: 'Hello Mobius UI!',
+      whisper: 'The author is looking for a job as a product manager \\n             For a quickest preview of his info, check https://example.com/',
       fonts: [
         '/statics/fonts/Workbench[wdth,wght].woff2',
         '/statics/fonts/Sixtyfour[wdth,wght].woff2'
