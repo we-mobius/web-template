@@ -1,6 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const CopyPlugin = require('copy-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const mobiusConfig = require('./mobius.config')
 
 // All files inside webpack's output.path directory will be removed once, but the
@@ -48,8 +49,10 @@ const commonHtmlPackBeforeRelease = new HtmlWebpackPlugin({
   }
 })
 
+const bundleAnalyzer = new BundleAnalyzerPlugin()
+
 module.exports = {
   development: [commonClean, commonHtmlPackBeforeRelease],
-  production: [commonClean, commonHtmlPackBeforeRelease],
+  production: [commonClean, commonHtmlPackBeforeRelease, bundleAnalyzer],
   release: [commonClean]
 }

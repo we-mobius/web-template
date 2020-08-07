@@ -59,10 +59,10 @@
 
 更加详细的文档，请查阅 `./docs`，其中包括:
 
-- [上手使用](./docs/getting_started.md) - 如何构建 & 如何使用
-- [使用说明](./docs/instructions.md) - 使用说明
-- [设计原则](./docs/design_specification.md) - 设计原则
-- [待办](./docs/todos.md) - 待办 & 迭代路线
+- [上手使用](./getting_started.md) - 如何构建 & 如何使用
+- [使用说明](./instructions.md) - 使用说明
+- [设计原则](./design_specification.md) - 设计原则
+- [待办](./todos.md) - 待办 & 迭代路线
 
 ## 技术栈
 

@@ -71,8 +71,10 @@
     "postcss-preset-env": "^6.7.0",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.4.4",
+    "terser-webpack-plugin": "^4.0.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
@@ -95,5 +97,9 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "rxjs": "^6.6.2"
   }
 }
