@@ -29,20 +29,20 @@ module.exports = {
         </style>
       `,
       bodyHtmlSnippet: `
-      <div id="app">
-      <div class="mobius-width--100vw mobius-height--100vh mobius-layout__vertical">
-        <div class="mobius-padding--xl mobius-margin--auto mobius-shadow--normal mobius-rounded--base">
-          <div class="mobius-layout__vertical mobius-flex-items--center mobius-select--none">
-            <p class="mobius-text--center mobius-text--xl mobius-font--fantasy">
-              <div class="svg-loading" style="width: 45px; height: 45px;"></div>
-            </p>
-            <p>
-              Mobius Template Project!
-            </p>
+        <div id="mobius-app">
+          <div class="mobius-width--100vw mobius-height--100vh mobius-layout__vertical">
+            <div class="mobius-padding--xl mobius-margin--auto mobius-shadow--normal mobius-rounded--base">
+              <div class="mobius-layout__vertical mobius-flex-items--center mobius-select--none">
+                <p class="mobius-text--center mobius-text--xl mobius-font--fantasy">
+                  <div class="svg-loading" style="width: 45px; height: 45px;"></div>
+                </p>
+                <p>
+                  Mobius Template Project!
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
       `,
       // from: https://analytics.google.com/analytics/web/
       googleAnalytics: {
