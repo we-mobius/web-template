@@ -19,6 +19,7 @@ module.exports = {
     main: './src/main.js'
   },
   output: {
+    filename: '[name].[contenthash:7].js',
     path: PATHS.output,
     publicPath: publicPath
   },
@@ -85,5 +86,6 @@ module.exports = {
       })
     ]
   },
-  devtool: 'hidden-nosources-source-map'
+  devtool: 'source-map'
+  // devtool: 'hidden-nosources-source-map'
 }

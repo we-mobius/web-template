@@ -1,4 +1,8 @@
-const PUBLIC_PATH = '/'
+const PUBLIC_PATH = '|' // '|'
+// https://fonts.googleapis.com/
+//  -> https://fonts.googleapis.cnpmjs.org/
+//  -> https://fonts.dogedoge.com/
+const CSS_CDN_ORIGIN = 'https://fonts.googleapis.cnpmjs.org/'
 
 module.exports = {
   publicPath: PUBLIC_PATH,
@@ -11,12 +15,10 @@ module.exports = {
         `${PUBLIC_PATH}statics/fonts/Sixtyfour[wdth,wght].woff2`
       ],
       asyncCss: [
-        // https://fonts.googleapis.com/ -> https://fonts.googleapis.cnpmjs.org/
-        //  -> https://fonts.dogedoge.com/
-        'https://fonts.dogedoge.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap',
-        'https://fonts.dogedoge.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap',
-        'https://fonts.dogedoge.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap',
-        'https://fonts.dogedoge.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap'
+        `${CSS_CDN_ORIGIN}css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap`,
+        `${CSS_CDN_ORIGIN}css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap`,
+        `${CSS_CDN_ORIGIN}css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap`,
+        `${CSS_CDN_ORIGIN}css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap`
       ],
       css: [
         'https://cdn.jsdelivr.net/npm/@we-mobius/mobius-ui@latest'

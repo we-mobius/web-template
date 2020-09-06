@@ -46,7 +46,8 @@ module.exports = {
       }
     ])
   ],
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
+  devtool: 'source-map',
   devServer: {
     writeToDisk: true,
     compress: true,
