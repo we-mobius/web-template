@@ -13,12 +13,12 @@
     "cz-commit": "npm run lint && npx git-cz",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix",
-    "dev": "webpack-dev-server --env.mode=development",
-    "build": "webpack --env.mode=development",
-    "dist": "webpack --env.mode=production",
-    "serve": "live-server ./dist --port=0624",
-    "expose": "ngrok http 624",
-    "bundle": "webpack --env.mode=release && node ./bin/release"
+    "dev": "npx webpack-dev-server --env.mode=development",
+    "build": "npx webpack --env.mode=development",
+    "dist": "npx webpack --env.mode=production",
+    "serve": "npx live-server ./dist --port=0624",
+    "expose": "npx ngrok http 624",
+    "bundle": "npx webpack --env.mode=release && node ./bin/release"
   },
   "repository": {
     "type": "git",
