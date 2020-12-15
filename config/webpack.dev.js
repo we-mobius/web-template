@@ -1,18 +1,19 @@
-const path = require('path')
-const { development: developmentLoaders } = require('./loaders.config')
-const { development: developmentPlugins } = require('./plugins.config')
-const CopyPlugin = require('copy-webpack-plugin')
+import { rootResolvePath } from '../scripts/utils.js'
+import { getDevelopmentLoaders } from './loaders.config.js'
+import { getDevelopmentPlugins } from './plugins.config.js'
+import CopyPlugin from 'copy-webpack-plugin'
+import path from 'path'
 
 const PATHS = {
-  output: path.resolve(process.cwd(), 'build')
+  output: rootResolvePath('build')
 }
 
-module.exports = {
+export const getDevelopmentConfig = () => ({
   mode: 'development',
   // NOTE: entry sort matters style cascading
   entry: {
     static: './src/static.js',
-    main: './src/main.js'
+    index: './src/index.js'
   },
   output: {
     path: PATHS.output
@@ -28,12 +29,12 @@ module.exports = {
         ]
       },
       {
-        oneOf: [...developmentLoaders]
+        oneOf: [...getDevelopmentLoaders()]
       }
     ]
   },
   plugins: [
-    ...developmentPlugins,
+    ...getDevelopmentPlugins(),
     // CopyPlugin configurations: https://github.com/webpack-contrib/copy-webpack-plugin
     new CopyPlugin([
       {
@@ -48,12 +49,16 @@ module.exports = {
   ],
   // devtool: 'eval-source-map',
   devtool: 'source-map',
+  // ref: https://webpack.js.org/configuration/dev-server/
   devServer: {
     writeToDisk: true,
     compress: true,
     port: 3000,
     open: true,
     hot: true,
+    historyApiFallback: {
+      disableDotRule: true
+    },
     clientLogLevel: 'trace',
     watchOptions: {
       aggregateTimeout: 1000
@@ -61,4 +66,4 @@ module.exports = {
     },
     disableHostCheck: true
   }
-}
+})

@@ -1,27 +1,30 @@
-const path = require('path')
-const { production: productionPlugins } = require('./plugins.config')
-const { production: productionLoaders } = require('./loaders.config')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
-const { publicPath } = require('./mobius.config.js')
+import { rootResolvePath } from '../scripts/utils.js'
+import { getMobiusConfig } from './mobius.config.js'
+import { getProductionLoaders } from './loaders.config.js'
+import { getProductionPlugins } from './plugins.config.js'
+
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import TerserPlugin from 'terser-webpack-plugin'
+import CopyPlugin from 'copy-webpack-plugin'
+
+import path from 'path'
 
 const PATHS = {
-  src: path.resolve(process.cwd(), 'src'),
-  output: path.resolve(process.cwd(), 'dist')
+  src: rootResolvePath('src'),
+  output: rootResolvePath('dist')
 }
 
-module.exports = {
+export const getProductionConfig = () => ({
   mode: 'production',
   // NOTE: entry sort matters style cascading
   entry: {
     static: './src/static.js',
-    main: './src/main.js'
+    index: './src/index.js'
   },
   output: {
     filename: '[name].[contenthash:7].js',
     path: PATHS.output,
-    publicPath: publicPath
+    publicPath: getMobiusConfig().publicPath
   },
   module: {
     rules: [
@@ -41,12 +44,12 @@ module.exports = {
         sideEffects: true
       },
       {
-        oneOf: [...productionLoaders]
+        oneOf: [...getProductionLoaders()]
       }
     ]
   },
   plugins: [
-    ...productionPlugins,
+    ...getProductionPlugins(),
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[contenthash:10].css',
       chunkFilename: 'styles/[id].[contenthash:10].css'
@@ -88,4 +91,4 @@ module.exports = {
   },
   devtool: 'source-map'
   // devtool: 'hidden-nosources-source-map'
-}
+})

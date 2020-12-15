@@ -1,7 +1,6 @@
-const path = require('path')
-const resolve = dir => path.resolve(__dirname, '../', dir)
+import { rootResolvePath } from '../scripts/utils.js'
 
-module.exports = {
+export const getCommonConfig = () => ({
   output: {
     filename: '[name].js',
     publicPath: '/'
@@ -13,12 +12,12 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
     alias: {
-      Libs: resolve('src/libs/'),
-      MobiusUI$: resolve('src/libs/mobius-ui.js'),
-      MobiusJS$: resolve('src/libs/mobius-js.js'),
-      Interface: resolve('src/interface/'),
-      Business: resolve('src/business/')
+      Libs: rootResolvePath('src/libs/'),
+      MobiusUI$: rootResolvePath('src/libs/mobius-ui.js'),
+      MobiusJS$: rootResolvePath('src/libs/mobius-js.js'),
+      Interface: rootResolvePath('src/interface/'),
+      Business: rootResolvePath('src/business/')
     },
     symlinks: false
   }
-}
+})
