@@ -66,13 +66,12 @@ All the relative documentations of detail, pls check `./docs`，which contains:
 
 ## Built With
 
-- [cyclejs](https://github.com/cyclejs/cyclejs) - Great Jobs for handle DOMs functionally and reactively 🤞
 - [rxjs](https://github.com/ReactiveX/rxjs) - Reactive programming library for JavaScript
 - somthing else...
 
 ## Author
 
-- **Cigaret** - *Undergraduate of CUC* - kcigaret@outlook.com
+- **Cigaret** - kcigaret@outlook.com
 
 ## License
 

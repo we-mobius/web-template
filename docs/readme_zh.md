@@ -66,7 +66,6 @@
 
 ## 技术栈
 
-- [cyclejs](https://github.com/cyclejs/cyclejs) - Great Jobs for handle DOMs functionally and reactively 🤞
 - [rxjs](https://github.com/ReactiveX/rxjs) - Reactive programming library for JavaScript
 - 其它...
 
