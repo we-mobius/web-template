@@ -1,4 +1,4 @@
-export const PUBLIC_PATH = '/' // '|'
+const PUBLIC_PATH = '/' // '/'
 // https://fonts.googleapis.com/
 //  -> https://fonts.googleapis.cnpmjs.org/
 //  -> https://fonts.dogedoge.com/
