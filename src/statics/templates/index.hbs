@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{!-- 渲染 favicon --}}
-  <link rel="apple-touch-icon" type="image/png" href="{{mobiusConfig.favicon}}">
-  <link rel="apple-touch-startup-image" type="image/png" href="{{mobiusConfig.favicon}}">
+  {{#each mobiusConfig.manifest.icons as |icon|}}
+  <link rel="{{icon.rel}}" type="{{icon.type}}" sizes="{{icon.sizes}}" href="{{icon.src}}">
+  {{/each}}
   <link rel="icon" type="image/png" href="{{mobiusConfig.favicon}}">
   {{!-- 渲染额外引入的字体资源 --}}
   {{#each mobiusConfig.fonts as |extra-font|}}

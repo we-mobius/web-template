@@ -21,7 +21,49 @@ const commonTemplate = {
     'https://cdn.jsdelivr.net/npm/@we-mobius/mobius-ui@latest'
   ],
   scripts: [],
-  favicon: `${PUBLIC_PATH}statics/favicons/thoughts-daily.icon.png`,
+  // generator: https://favicon.io/favicon-converter/
+  favicon: `${PUBLIC_PATH}statics/favicons/favicon.ico`,
+  // ref: https://developer.mozilla.org/zh-CN/docs/Web/Manifest
+  manifest: {
+    icons: [
+      {
+        rel: 'apple-touch-icon',
+        src: `${PUBLIC_PATH}statics/favicons/apple-touch-icon.png`,
+        sizes: '180x180',
+        type: 'image/png'
+      },
+      {
+        rel: 'apple-touch-startup-image',
+        src: `${PUBLIC_PATH}statics/favicons/apple-touch-icon.png`,
+        sizes: '180x180',
+        type: 'image/png'
+      },
+      {
+        rel: 'icon',
+        src: `${PUBLIC_PATH}statics/favicons/favicon-32x32.png`,
+        sizes: '32x32',
+        type: 'image/png'
+      },
+      {
+        rel: 'icon',
+        src: `${PUBLIC_PATH}statics/favicons/favicon-16x16.png`,
+        sizes: '16x16',
+        type: 'image/png'
+      },
+      {
+        rel: 'icon',
+        src: `${PUBLIC_PATH}statics/favicons/android-chrome-192x192.png`,
+        sizes: '192x192',
+        type: 'image/png'
+      },
+      {
+        rel: 'icon',
+        src: `${PUBLIC_PATH}statics/favicons/android-chrome-512x512.png`,
+        sizes: '512x512',
+        type: 'image/png'
+      }
+    ]
+  },
   headHtmlSnippet: `
     <style>
       body { developer: "cigaret"; wechat: "cigaret_bot"; email: "kcigaret@outlook.com"; }
