@@ -76,8 +76,8 @@ export const getProductionConfig = () => ({
     minimizer: [
       new TerserPlugin({
         parallel: true,
-        sourceMap: true,
         terserOptions: {
+          sourceMap: true,
           compress: {
             drop_debugger: true,
             drop_console: true

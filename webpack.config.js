@@ -2,7 +2,7 @@ import { getCommonConfig } from './config/webpack.common.js'
 import { getDevelopmentConfig } from './config/webpack.dev.js'
 import { getProductionConfig } from './config/webpack.prod.js'
 import { getReleaseConfig } from './config/webpack.release.js'
-import merge from 'webpack-merge'
+import { merge } from 'webpack-merge'
 
 export const getWebpackConfig = (env, args) => {
   const { mode } = env
