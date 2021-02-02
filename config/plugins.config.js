@@ -66,6 +66,7 @@ const bundleAnalyzer = new BundleAnalyzerPlugin({
   openAnalyzer: false
 })
 
-export const getDevelopmentPlugins = () => [commonClean, indexHtmlPack]
+export const getDevelopmentPlugins = () => [indexHtmlPack]
+export const getBuildPlugins = () => [commonClean, indexHtmlPack]
 export const getProductionPlugins = () => [commonClean, indexHtmlPack, bundleAnalyzer]
 export const getReleasePlugins = () => [commonClean]

@@ -73,5 +73,6 @@ const jsLoader = {
 }
 
 export const getDevelopmentLoaders = () => [handlebarsLoader, jsLoader, imageLoader, svgLoader, fontLoader]
+export const getBuildLoaders = () => [handlebarsLoader, jsLoader, imageLoader, svgLoader, fontLoader]
 export const getProductionLoaders = () => [handlebarsLoader, jsLoader, imageLoader, svgLoader, fontLoader]
 export const getReleaseLoaders = () => [handlebarsLoader, jsLoader, imageLoader, svgLoader, fontLoader4Release]

@@ -50,20 +50,6 @@ export const getDevelopmentConfig = () => ({
   // devtool: 'eval-source-map',
   devtool: 'source-map',
   // ref: https://webpack.js.org/configuration/dev-server/
-  devServer: {
-    writeToDisk: true,
-    compress: true,
-    port: 3000,
-    open: true,
-    hot: true,
-    historyApiFallback: {
-      disableDotRule: true
-    },
-    clientLogLevel: 'trace',
-    watchOptions: {
-      aggregateTimeout: 1000
-      // ignored: /node_modules/
-    },
-    disableHostCheck: true
-  }
+  // in ./scripts/dev.js
+  devServer: {}
 })
