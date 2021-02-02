@@ -11,7 +11,7 @@ export {
 export {
   // creation
   ajax
-} from 'rxjs/ajax'
+} from 'rxjs/ajax/index.js'
 export {
   // creation
 
@@ -33,6 +33,6 @@ export {
   expand, toArray,
   groupBy, window, windowCount, windowTime, windowToggle, windowWhen,
   // utility
-  tap, delay, delayWhen, finalize, finally, repeat, timeInterval, timeout, timeoutWith,
+  tap, delay, delayWhen, finalize, repeat, timeInterval, timeout, timeoutWith,
   dematerialize
 } from 'rxjs/operators/index.js'

@@ -118,6 +118,7 @@
   },
   "sideEffects": false,
   "dependencies": {
+    "lit-html": "^1.3.0",
     "rxjs": "^6.6.2"
   }
 }
