@@ -3,7 +3,7 @@ import { getWebpackConfig } from '../webpack.config.js'
 import webpack from 'webpack'
 import path from 'path'
 
-const BUILD_MODE = 'development'
+const BUILD_MODE = 'build'
 const BUILD_TARGET_DES = 'build'
 const resolvePathInDes = (...paths) => path.join(BUILD_TARGET_DES, ...paths)
 
