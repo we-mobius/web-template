@@ -5,7 +5,7 @@ import CopyPlugin from 'copy-webpack-plugin'
 import path from 'path'
 
 const PATHS = {
-  output: rootResolvePath('build')
+  output: rootResolvePath('dev')
 }
 
 export const getDevelopmentConfig = () => ({
