@@ -1,11 +1,24 @@
 import './statics/styles/style.css'
+import '@we-mobius/mobius-ui/src/statics/styles/static.css'
 
-import { indexPage } from 'Interface/pages/index/index.js'
+import { completeStateRD } from 'MobiusUtils'
+import { makeAppContainerRD, runApp } from 'MobiusUI'
+import { initConfig, initTheme } from 'MobiusJS'
 
-import { html, render } from 'MobiusUI'
+import { appTemplateRD } from 'Interface/app.js'
 
-setTimeout(() => {
-  render(document.getElementById('mobius-app'), html`
-    <div>Welcome to use Mobius Template.</div>
-  `)
-}, 2000)
+// initConfig()
+initTheme({
+  isAutoToggle: () => 'open'
+})
+
+completeStateRD.subscribe(() => {
+  console.log('[Application] initialize start!')
+
+  const appContainerRD = makeAppContainerRD('mobius-app', {
+    className: 'mobius-app'
+  })
+  runApp(appContainerRD, appTemplateRD)
+
+  console.log('[Application] initialize ended!')
+})

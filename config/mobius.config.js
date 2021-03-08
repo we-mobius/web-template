@@ -12,13 +12,13 @@ const commonTemplate = {
     // `${PUBLIC_PATH}statics/fonts/Sixtyfour[wdth,wght].woff2`
   ],
   asyncCss: [
-    `${CSS_CDN_ORIGIN}css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap`,
-    `${CSS_CDN_ORIGIN}css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap`,
-    `${CSS_CDN_ORIGIN}css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap`,
-    `${CSS_CDN_ORIGIN}css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap`
+    // `${CSS_CDN_ORIGIN}css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap`,
+    // `${CSS_CDN_ORIGIN}css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap`,
+    // `${CSS_CDN_ORIGIN}css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap`,
+    // `${CSS_CDN_ORIGIN}css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap`
   ],
   css: [
-    'https://cdn.jsdelivr.net/npm/@we-mobius/mobius-ui@latest'
+    // 'https://cdn.jsdelivr.net/npm/@we-mobius/mobius-ui@latest'
   ],
   scripts: [],
   // generator: https://favicon.io/favicon-converter/
