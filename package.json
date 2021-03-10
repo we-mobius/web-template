@@ -33,8 +33,9 @@
     "dev": "node ./scripts/dev",
     "build": "node ./scripts/build",
     "dist": "node ./scripts/dist",
-    "serve": "live-server ./dist --port=0624",
-    "expose": "ngrok http 624",
+    "serve:build": "npx live-server ./build --port=0624",
+    "serve:dist": "npx live-server ./dist --port=0624",
+    "expose": "npx ngrok http 624",
     "bundle": "node ./scripts/bundle"
   },
   "repository": {
