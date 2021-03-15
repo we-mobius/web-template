@@ -7,7 +7,7 @@ export const CSS_CDN_ORIGIN = 'https://fonts.googleapis.cnpmjs.org/'
 const commonTemplate = {
   title: 'Hello, Mobius Project!',
   'meta-csp': "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' *.alicdn.com data:; connect-src *;",
-  whisper: 'The author is looking for a job as a product manager \\n             For a quickest preview of his info, check https://example.com/',
+  whisper: 'The owner is looking for a job as a product manager | business manager \\n             For a quickest preview of his info, check https://www.cigaret.world',
   fonts: [
     // `${PUBLIC_PATH}statics/fonts/Workbench[wdth,wght].woff2`,
     // `${PUBLIC_PATH}statics/fonts/Sixtyfour[wdth,wght].woff2`
