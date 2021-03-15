@@ -16,6 +16,9 @@
       "Business/*": [
         "./src/business/*"
       ],
+      "FreeBusiness/*": [
+        "./src/business-free/*"
+      ],
       "Interface/*": [
         "./src/interface/*"
       ],
