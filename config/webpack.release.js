@@ -35,7 +35,8 @@ export const getReleaseConfig = () => ({
           },
           'css-loader',
           'postcss-loader'
-        ]
+        ],
+        sideEffects: true
       },
       {
         oneOf: [...getReleaseLoaders()]
