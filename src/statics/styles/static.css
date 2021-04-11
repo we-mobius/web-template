@@ -1,3 +1,5 @@
+/*! purgecss start ignore */
+
 .svg-smallerthan5KB {
   background-image: url("../images/moon.svg");
   background-size: contain;
@@ -11,3 +13,5 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/*! purgecss end ignore */

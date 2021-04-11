@@ -5,3 +5,7 @@
 @import "tailwindcss/utilities";
 
 @import "tailwindcss/screens";
+
+/*! purgecss start ignore */
+
+/*! purgecss end ignore */

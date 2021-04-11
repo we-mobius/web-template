@@ -14,6 +14,7 @@ module.exports = {
     }),
     require('postcss-extend-rule')({ name: 'extend' }),
     require('postcss-advanced-variables'),
+    // https://tailwindcss.com/docs/using-with-preprocessors
     require('tailwindcss'),
     require('autoprefixer'),
     // purgecss configurations: https://purgecss.com/configuration.html
