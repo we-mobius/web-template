@@ -24,6 +24,15 @@
       ],
       "Libs/*": [
         "./src/libs/*"
+      ],
+      "Statics/*": [
+        "./src/statics/*"
+      ],
+      "Images/*": [
+        "./src/statics/images/*"
+      ],
+      "Styles/*": [
+        "./src/statics/styles/*"
       ]
     }
   },
