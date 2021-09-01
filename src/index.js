@@ -1,4 +1,4 @@
-import '@we-mobius/mobius-ui/src/statics/styles/static.css'
+import '@we-mobius/mobius-ui/css'
 import 'Styles/style.css'
 
 import { completeStateRD } from 'MobiusUtils'
