@@ -66,7 +66,7 @@ All the relative documentations of detail, pls check `./docs`，which contains:
 
 ## Built With
 
-- [rxjs](https://github.com/ReactiveX/rxjs) - Reactive programming library for JavaScript
+- []() - Reactive programming library for JavaScript
 - somthing else...
 
 ## Author

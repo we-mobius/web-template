@@ -3,6 +3,7 @@ import { getReleaseLoaders } from './loaders.config.js'
 import { getReleasePlugins } from './plugins.config.js'
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import TerserPlugin from 'terser-webpack-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
 
 import path from 'path'
@@ -12,15 +13,8 @@ const PATHS = {
   output: rootResolvePath('release')
 }
 
-export const getReleaseConfig = () => ({
+const reusedConfigs = {
   mode: 'production',
-  entry: {
-    // mobius: './src/mobius.release.entry.js',
-    // addons: './src/addons.release.entry.js'
-  },
-  output: {
-    path: PATHS.output
-  },
   module: {
     rules: [
       {
@@ -71,6 +65,94 @@ export const getReleaseConfig = () => ({
       }
     ])
   ],
+  optimization: {
+    minimize: true,
+    providedExports: true,
+    usedExports: true,
+    sideEffects: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          sourceMap: true,
+          compress: {
+            drop_debugger: true,
+            drop_console: true
+          },
+          format: {
+            comments: false
+          }
+        }
+      })
+    ]
+  },
   devtool: 'hidden-nosources-source-map'
 }
-)
+
+export const getReleaseConfig = () => ([
+  {
+    target: 'web',
+    entry: {
+      'css-base': './src/css-base.release.entry.ts'
+    },
+    output: {
+      filename: '[name].js',
+      path: PATHS.output
+    },
+    ...reusedConfigs
+  },
+  {
+    target: 'node',
+    entry: {
+      main: './src/main.release.entry.ts'
+    },
+    output: {
+      filename: '[name].js',
+      path: path.resolve(PATHS.output, './modules/umd'),
+      // @refer: https://webpack.js.org/configuration/output/#outputlibrarytarget
+      // @refer: https://webpack.js.org/configuration/output/#outputlibrarytype
+      // libraryTarget: 'umd',
+      library: {
+        name: 'MobiusTemplateMain',
+        type: 'umd'
+      },
+      // @refer: https://webpack.js.org/configuration/output/#outputglobalobject
+      globalObject: 'this',
+      umdNamedDefine: true
+    },
+    ...reusedConfigs
+  },
+  {
+    target: 'node',
+    entry: {
+      main: './src/main.release.entry.ts'
+    },
+    output: {
+      filename: '[name].js',
+      path: path.resolve(PATHS.output, './modules/cjs'),
+      library: {
+        name: 'MobiusTemplateMain',
+        type: 'commonjs'
+      },
+      globalObject: 'this'
+    },
+    ...reusedConfigs
+  },
+  {
+    target: 'web',
+    entry: {
+      main: './src/main.release.entry.ts'
+    },
+    experiments: {
+      outputModule: true
+    },
+    output: {
+      filename: '[name].js',
+      path: path.resolve(PATHS.output, './modules/esm'),
+      library: {
+        type: 'module'
+      }
+    },
+    ...reusedConfigs
+  }
+])

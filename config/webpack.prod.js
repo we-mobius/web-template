@@ -1,5 +1,4 @@
 import { rootResolvePath } from '../scripts/utils.js'
-import { getMobiusConfig } from './mobius.config.js'
 import { getProductionLoaders } from './loaders.config.js'
 import { getProductionPlugins } from './plugins.config.js'
 
@@ -14,18 +13,8 @@ const PATHS = {
   output: rootResolvePath('dist')
 }
 
-export const getProductionConfig = () => ({
+const reusedConfigs = {
   mode: 'production',
-  // NOTE: entry sort matters style cascading
-  entry: {
-    static: './src/static.js',
-    index: './src/index.js'
-  },
-  output: {
-    filename: '[name].[contenthash:7].js',
-    path: PATHS.output,
-    publicPath: getMobiusConfig().publicPath
-  },
   module: {
     rules: [
       {
@@ -94,4 +83,19 @@ export const getProductionConfig = () => ({
   },
   devtool: 'source-map'
   // devtool: 'hidden-nosources-source-map'
-})
+}
+
+export const getProductionConfig = () => ([
+  {
+    // NOTE: entry sort matters style cascading
+    entry: {
+      static: './src/static.ts',
+      index: './src/index.ts'
+    },
+    output: {
+      filename: '[name].[contenthash:7].js',
+      path: PATHS.output
+    },
+    ...reusedConfigs
+  }
+])

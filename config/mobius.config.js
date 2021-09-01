@@ -3,10 +3,19 @@ const PUBLIC_PATH = '/' // '/'
 //  -> https://fonts.googleapis.cnpmjs.org/
 //  -> https://fonts.dogedoge.com/
 export const CSS_CDN_ORIGIN = 'https://fonts.googleapis.cnpmjs.org/'
+const CSP_WHITE_LIST = 'https://*.unpkg.com https://*.jsdelivr.net https://*.cloudflare.com'
 
 const commonTemplate = {
   title: 'Hello, Mobius Project!',
-  'meta-csp': "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' *.alicdn.com data:; connect-src *;",
+  'meta-csp':
+    `default-src 'self' ${CSP_WHITE_LIST};` +
+    ` script-src 'self' 'unsafe-inline' 'unsafe-eval' ${CSP_WHITE_LIST};` +
+    ` style-src 'self' 'unsafe-inline' ${CSP_WHITE_LIST};` +
+    ` font-src 'self' *.alicdn.com data: ${CSP_WHITE_LIST};` +
+    ` img-src 'self' data: ${CSP_WHITE_LIST};` +
+    ` connect-src * ${CSP_WHITE_LIST};` +
+    ' worker-src blob:;' +
+    ' child-src blob:',
   whisper: 'The owner is looking for a job as a product manager | business manager \\n             For a quickest preview of his info, check https://www.cigaret.world',
   fonts: [
     // `${PUBLIC_PATH}statics/fonts/Workbench[wdth,wght].woff2`,
