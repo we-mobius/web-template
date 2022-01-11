@@ -1,7 +1,7 @@
 {
   "name": "template",
   "version": "0.1.0",
-  "description": "Mobius flavor project templates.",
+  "description": "📋 Template for mobius flavor web project.",
   "type": "module",
   "typings": "./typings/main.d.ts",
   "types": "./typings/main.d.ts",
