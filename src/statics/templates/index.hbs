@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class='mobius-base'>
+<html lang="en" class="mobius-base">
 
 <head>
   <meta charset="UTF-8">
@@ -9,8 +9,8 @@
   {{#each mobiusConfig.manifest.icons as |icon|}}
   <link rel="{{icon.rel}}" type="{{icon.type}}" sizes="{{icon.sizes}}" href="{{icon.src}}">
   {{/each}}
-  <link rel="icon" type="image/png" href="{{mobiusConfig.favicon}}">
   {{!-- 渲染额外引入的字体资源 --}}
+  {{!-- @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content --}}
   {{#each mobiusConfig.fonts as |extra-font|}}
   <link rel='preload' as="font" href="{{extra-font}}" type="font/woff2" crossorigin="anonymous" />
   {{/each}}
@@ -75,7 +75,7 @@
     var _hmt = _hmt || [];
     (function () {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?{{mobiusConfig.baiduAnalytics.trackingId}}";
+      hm.src = "https://hm.baidu.com/hm.js?{{ mobiusConfig.baiduAnalytics.trackingId }}";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -89,7 +89,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', '{{mobiusConfig.googleAnalytics.trackingId}}');
+    gtag('config', '{{ mobiusConfig.googleAnalytics.trackingId }}');
   </script>
   {{/if}}
 </body>

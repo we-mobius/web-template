@@ -29,8 +29,7 @@ const reusedConfigs = {
           },
           'css-loader',
           'postcss-loader'
-        ],
-        sideEffects: true
+        ]
       },
       {
         oneOf: [...getReleaseLoaders()]
@@ -44,32 +43,36 @@ const reusedConfigs = {
       chunkFilename: 'styles/[id].css'
     }),
     // CopyPlugin configurations: https://github.com/webpack-contrib/copy-webpack-plugin
-    new CopyPlugin([
-      {
-        from: './src/statics/favicons/',
-        // to 可以写相对 webpack.config.output.path 的路径，比如 './statics/favicons/'
-        // 但 CopyPlugin 插件的文档中没有明确说明 to 最终路径的计算规则
-        // 所以我个人推荐手动计算绝对路径，如下
-        to: path.resolve(PATHS.output, './statics/favicons/'),
-        toType: 'dir'
-      },
-      {
-        from: './src/statics/styles/fonts/',
-        to: path.resolve(PATHS.output, './statics/styles/fonts/'),
-        toType: 'dir'
-      },
-      {
-        from: './src/statics/fonts/',
-        to: path.resolve(PATHS.output, './statics/fonts/'),
-        toType: 'dir'
-      }
-    ])
+    new CopyPlugin({
+      patterns: [
+        {
+          from: './src/statics/favicons/',
+          // to 可以写相对 webpack.config.output.path 的路径，比如 './statics/favicons/'
+          // 但 CopyPlugin 插件的文档中没有明确说明 to 最终路径的计算规则
+          // 所以我个人推荐手动计算绝对路径，如下
+          to: path.resolve(PATHS.output, './statics/favicons/'),
+          toType: 'dir'
+        },
+        {
+          from: './src/statics/fonts/',
+          to: path.resolve(PATHS.output, './statics/fonts/'),
+          toType: 'dir'
+        },
+        {
+          from: './src/statics/images/',
+          to: path.resolve(PATHS.output, './statics/images/'),
+          toType: 'dir'
+        },
+        {
+          from: './src/statics/styles/fonts/',
+          to: path.resolve(PATHS.output, './statics/styles/fonts/'),
+          toType: 'dir'
+        }
+      ]
+    })
   ],
   optimization: {
     minimize: true,
-    providedExports: true,
-    usedExports: true,
-    sideEffects: true,
     minimizer: [
       new TerserPlugin({
         parallel: true,
@@ -93,6 +96,8 @@ export const getReleaseConfig = () => ([
   {
     target: 'web',
     entry: {
+      'mobius-css': './src/mobius-css.release.entry.ts',
+      'css-addon': './src/css-addon.release.entry.ts',
       'css-base': './src/css-base.release.entry.ts'
     },
     output: {
@@ -104,7 +109,7 @@ export const getReleaseConfig = () => ([
   {
     target: 'node',
     entry: {
-      main: './src/main.release.entry.ts'
+      main: './src/mobius-gui.release.entry.ts'
     },
     output: {
       filename: '[name].js',
@@ -113,7 +118,7 @@ export const getReleaseConfig = () => ([
       // @refer: https://webpack.js.org/configuration/output/#outputlibrarytype
       // libraryTarget: 'umd',
       library: {
-        name: 'MobiusTemplateMain',
+        name: 'MobiusGUI',
         type: 'umd'
       },
       // @refer: https://webpack.js.org/configuration/output/#outputglobalobject
@@ -125,13 +130,12 @@ export const getReleaseConfig = () => ([
   {
     target: 'node',
     entry: {
-      main: './src/main.release.entry.ts'
+      main: './src/mobius-gui.release.entry.ts'
     },
     output: {
       filename: '[name].js',
       path: path.resolve(PATHS.output, './modules/cjs'),
       library: {
-        name: 'MobiusTemplateMain',
         type: 'commonjs2'
       }
     },
@@ -140,7 +144,7 @@ export const getReleaseConfig = () => ([
   {
     target: 'web',
     entry: {
-      main: './src/main.release.entry.ts'
+      main: './src/mobius-gui.release.entry.ts'
     },
     experiments: {
       outputModule: true

@@ -67,6 +67,8 @@ All the relative documentations of detail, pls check `./docs`，which contains:
 ## Built With
 
 - [Mobius Utils](https://github.com/we-mobius/mobius-utils) 🤞
+- [Mobius GUI](https://github.com/we-mobius/mobius-gui) 🤞
+- [Mobius Services](https://github.com/we-mobius/mobius-services) 🤞
 - somthing else...
 
 ## Author
