@@ -1,6 +1,24 @@
-import { replayWithLatest, Data } from 'MobiusUtils'
-import { html } from 'MobiusGUI'
+import { makeInstantComponent, makeMiddleColAdaptiveLayoutE } from 'MobiusGUI'
 
-export const appTemplateRD = replayWithLatest(1, Data.of(html`
-  <div>Welcome to use Mobius Template.</div>
-`))
+import { dockRD } from 'Interfaces/dock'
+import { homeRD } from 'Interfaces/pages/home/home'
+
+import { appNameRD } from 'FreeServices/app-route'
+
+export const appTemplateRD = makeInstantComponent(
+  [appNameRD, dockRD, homeRD],
+  ([appName, dock, home], template, mutation, { html }) => {
+    const apps: Record<string, any> = {
+      home: home
+    }
+
+    const view = makeMiddleColAdaptiveLayoutE({
+      styles: {
+        rootClasses: 'size--fullpct',
+        left: dock,
+        middle: apps[appName]
+      }
+    })
+    return view
+  }
+)
